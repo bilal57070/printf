@@ -6,7 +6,7 @@
 /*   By: bsafi <bsafi@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 17:57:58 by bsafi             #+#    #+#             */
-/*   Updated: 2023/04/13 18:28:03 by bsafi            ###   ########.fr       */
+/*   Updated: 2023/04/13 18:40:22 by bsafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ int	ft_printhexa_up(unsigned int n)
 	}
 	else
 		ft_putchar(base[(n % 16)]);
-	return (i);
+	return (i + 1);
 }
