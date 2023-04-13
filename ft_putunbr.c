@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putunbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsafi <bsafi@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/13 18:03:08 by bsafi             #+#    #+#             */
-/*   Updated: 2023/04/13 18:03:32 by bsafi            ###   ########.fr       */
+/*   Created: 2023/04/13 18:02:09 by bsafi             #+#    #+#             */
+/*   Updated: 2023/04/13 18:02:52 by bsafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_countnbr(int n)
+int	countnbr(unsigned int n)
 {
-	int	count;
+	unsigned int	count;
 
 	count = 0;
 	if (n < 0)
@@ -29,25 +29,20 @@ int	ft_countnbr(int n)
 	return (count);
 }
 
-int	ft_putnbr(int n)
+int	ft_putunbr(unsigned int n)
 {
-	int	count;
+	unsigned int	count;
 
-	count = ft_countnbr(n);
-	if (n == -2147483648)
+	count = countnbr(n);
+	if (n == 0)
 	{
-		write(1, "-2147483648", 11);
-		return (11);
-	}
-	if (n < 0)
-	{
-		n *= -1;
-		ft_putchar('-');
+		ft_putchar('0');
+		return (1);
 	}
 	if (n > 9)
 	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
+		ft_putunbr(n / 10);
+		ft_putunbr(n % 10);
 	}
 	else
 		ft_putchar(n + '0');

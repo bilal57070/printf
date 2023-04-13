@@ -6,21 +6,25 @@
 /*   By: bsafi <bsafi@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 19:22:51 by bsafi             #+#    #+#             */
-/*   Updated: 2023/04/11 19:42:44 by bsafi            ###   ########.fr       */
+/*   Updated: 2023/04/13 18:18:31 by bsafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putptr(void *ptr)
+int	ft_putptr(unsigned long n)
 {
-	int	i;
+	int		i;
+	char	*base;
 
-	i = (int *)ptr;
-	while (i)
+	i = 0;
+	base = "0123456789abcdef";
+	if (n >= 16)
 	{
-		write(1, i, 1);
-		i++;
+		i = ft_putptr(n / 16);
+		ft_putchar(base[n % 16]);
 	}
-	return (1);
+	else
+		ft_putchar(base[(n % 16)]);
+	return (i + 1);
 }

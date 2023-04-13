@@ -6,7 +6,7 @@
 /*   By: bsafi <bsafi@student.42nice.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 14:41:29 by bsafi             #+#    #+#             */
-/*   Updated: 2023/04/11 19:15:02 by bsafi            ###   ########.fr       */
+/*   Updated: 2023/04/13 16:35:27 by bsafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,16 @@ int	ft_putstr(char *s)
 	int	i;
 
 	i = 0;
-	while (s[i])
-		i++;
-	write(1, s, i);
+	if (s != NULL)
+	{
+		while (s[i])
+			i++;
+		write(1, s, i);
+	}
+	else
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
 	return (i);
 }
